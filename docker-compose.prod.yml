@@ -21,8 +21,8 @@ services:
     mem_limit: 512m
 
     networks:
-      - mkn-network
+      - canjix-network
 
 networks:
-  mkn-network:
+  canjix-network:
     external: true
