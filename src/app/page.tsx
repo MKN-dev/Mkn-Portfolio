@@ -220,12 +220,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       <Link href={`/project/${project.slug}`} className="group block project-card" data-cursor="Voir">
         {/* Image */}
-        <div className="relative overflow-hidden bg-[#111110] aspect-[4/3] rounded-sm">
-          <Image
+        <div className="relative overflow-hidden bg-[#111110] rounded-sm">
+          <img
             src={project.thumbnail}
             alt={project.title}
-            fill
-            className="object-cover project-img transition-transform duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105"
+            loading="lazy"
+            className="w-full h-auto block project-img transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-[#080808]/30 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
 

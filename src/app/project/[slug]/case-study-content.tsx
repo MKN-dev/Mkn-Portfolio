@@ -99,7 +99,7 @@ function MetricCard({
 }
 
 /* ── Full-bleed image (natural size, no crop) ── */
-function FullBleedImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+function FullBleedImage({ src, alt }: { src: string; alt: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -165,6 +165,7 @@ function BrowserMockup({ src, alt }: { src: string; alt: string }) {
 function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { t } = useLanguage();
   return (
     <motion.div
       ref={ref}
@@ -179,7 +180,7 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
         </div>
       </div>
       <p className="text-[11px] text-[#4a4a4a] tracking-[0.15em] uppercase mt-6 text-center font-medium">
-        Interface Mobile Native
+        {t("caseStudy.mobileInterface")}
       </p>
     </motion.div>
   );
@@ -264,6 +265,7 @@ function TrioImages({ images, alts }: { images: string[]; alts: string[] }) {
 function DuoPhones({ leftSrc, rightSrc, alt }: { leftSrc: string; rightSrc: string; alt: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { t } = useLanguage();
   return (
     <motion.div
       ref={ref}
@@ -292,7 +294,7 @@ function DuoPhones({ leftSrc, rightSrc, alt }: { leftSrc: string; rightSrc: stri
           </div>
         </div>
         <p className="text-[11px] text-[#6B635A] tracking-[0.15em] uppercase mt-12 text-center">
-          Vues mobiles
+          {t("caseStudy.mobileViews")}
         </p>
       </div>
     </motion.div>
@@ -303,6 +305,7 @@ function DuoPhones({ leftSrc, rightSrc, alt }: { leftSrc: string; rightSrc: stri
 function DeviceDuo({ desktopSrc, mobileSrc, alt }: { desktopSrc: string; mobileSrc: string; alt: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { t } = useLanguage();
   return (
     <motion.div
       ref={ref}
@@ -323,7 +326,7 @@ function DeviceDuo({ desktopSrc, mobileSrc, alt }: { desktopSrc: string; mobileS
               </div>
               <div className="flex-1 flex justify-center">
                 <div className="bg-[#0E0D0C] rounded-md px-12 py-1">
-                  <span className="text-[10px] text-[#6B635A] tracking-wider">système</span>
+                  <span className="text-[10px] text-[#6B635A] tracking-wider">{t("caseStudy.system")}</span>
                 </div>
               </div>
             </div>
@@ -355,6 +358,7 @@ function DeviceDuo({ desktopSrc, mobileSrc, alt }: { desktopSrc: string; mobileS
 function ArchitectureTokens({ colors }: { colors: { name: string; hex: string }[] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { t } = useLanguage();
   return (
     <motion.div
       ref={ref}
@@ -364,7 +368,7 @@ function ArchitectureTokens({ colors }: { colors: { name: string; hex: string }[
       className="py-16 md:py-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <SectionLabel num="System" title="Architecture & Identité" />
+        <SectionLabel num={t("caseStudy.system")} title={t("caseStudy.architectureIdentity")} />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {colors.map((c, i) => (
             <motion.div
@@ -394,6 +398,7 @@ function ArchitectureTokens({ colors }: { colors: { name: string; hex: string }[
 function ToolsList({ tools }: { tools: string[] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { t } = useLanguage();
   return (
     <motion.div
       ref={ref}
@@ -403,7 +408,7 @@ function ToolsList({ tools }: { tools: string[] }) {
       className="py-16 md:py-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <SectionLabel num="Stack" title="Technologies & Outils" />
+        <SectionLabel num="Stack" title={t("caseStudy.techTools")} />
         <div className="flex flex-wrap gap-3">
           {tools.map((tool, i) => (
             <motion.span
@@ -586,7 +591,7 @@ export function CaseStudyContent({
   if (isMobileProject) {
     // Mobile-first layout
     visualSlots.push(
-      { after: 0, element: <FullBleedImage key="fb1" src={thumbnail} alt={`${project.title} — Système`} caption="Vue d'ensemble et contexte" /> },
+      { after: 0, element: <FullBleedImage key="fb1" src={thumbnail} alt={`${project.title} — ${t("caseStudy.system")}`} /> },
       { after: 1, element: <UseCaseModeling key="uc1" className="max-w-[1200px] mx-auto px-6" /> },
       { after: 2, element: <DuoImages key="duo1" images={[beforeLastImg, lastImg]} alts={[`${project.title} — Detail 1`, `${project.title} — Detail 2`]} /> },
       { after: 3, element: <DuoPhones key="phones1" leftSrc={g[0]} rightSrc={g[1]} alt={`${project.title} — Mobile Screens`} /> }
@@ -594,7 +599,7 @@ export function CaseStudyContent({
   } else {
     // Standard Architecture layout
     visualSlots.push(
-      { after: 0, element: <FullBleedImage key="fb1" src={thumbnail} alt={`${project.title} — Système`} caption="Vue d'ensemble et contexte" /> },
+      { after: 0, element: <FullBleedImage key="fb1" src={thumbnail} alt={`${project.title} — ${t("caseStudy.system")}`} /> },
       { after: 1, element: <SystemArchitecture key="sa1" className="max-w-[1200px] mx-auto px-6" /> },
       { after: 2, element: null },
       { after: 3, element: <UseCaseModeling key="um1" className="max-w-[1200px] mx-auto px-6" /> }
@@ -635,7 +640,7 @@ export function CaseStudyContent({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--primary)] border border-white/10 text-[11px] text-white tracking-[0.2em] uppercase hover:bg-neutral-900 transition-all duration-500 group shadow-2xl shadow-black/40"
               >
-                {project.urlLabel ?? "Voir le projet"}
+                {project.urlLabel ?? t("caseStudy.seeProject")}
                 <ArrowUpRight
                   size={12}
                   className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500"
@@ -671,7 +676,7 @@ export function CaseStudyContent({
               className="inline-flex items-center gap-2 text-[11px] text-[var(--primary)]/60 hover:text-[var(--primary)] transition-colors duration-500 mb-12 tracking-[0.15em] uppercase"
             >
               <ArrowLeft size={12} />
-              {t("allProjects")}
+              {t("caseStudy.allProjects")}
             </Link>
           </MaskReveal>
 
@@ -713,7 +718,7 @@ export function CaseStudyContent({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 mt-8 px-6 py-3 border border-[var(--primary)]/25 text-[11px] text-[var(--primary)]/70 tracking-[0.2em] uppercase hover:border-[var(--primary)]/60 hover:text-[var(--primary)] transition-all duration-500 group"
               >
-                {project.urlLabel ?? "Voir le projet"}
+                {project.urlLabel ?? t("caseStudy.seeProject")}
                 <ArrowUpRight
                   size={12}
                   className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500"
@@ -745,7 +750,7 @@ export function CaseStudyContent({
       <section className="py-12 md:py-20 relative overflow-hidden bg-white">
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
-            <SectionLabel num="Système" title="Performance & Impact" />
+            <SectionLabel num={t("caseStudy.system")} title="Performance & Impact" />
           </AnimSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {project.metrics.map((m, i) => (
@@ -810,7 +815,7 @@ export function CaseStudyContent({
       <div className="py-20 md:py-32 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
-            <SectionLabel num="Gallerie" title="Détails du projet" />
+            <SectionLabel num="Gallerie" title={t("caseStudy.galleryTitle")} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
               {g.slice(1, 3).map((src, i) => (
                 <motion.div
@@ -851,7 +856,7 @@ export function CaseStudyContent({
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-32 md:pt-48 text-center relative">
           <AnimSection>
             <span className="text-[10px] text-[#6B635A] tracking-[0.35em] uppercase block mb-4">
-              Projet suivant
+              {t("caseStudy.nextProject")}
             </span>
             <span className="text-[11px] text-[var(--primary)]/40 tracking-[0.2em] uppercase block mb-10">
               {next.type} / {next.sector}
@@ -872,7 +877,7 @@ export function CaseStudyContent({
                 </SplitText>
               </span>
               <span className="inline-flex items-center gap-3 text-sm text-[#6B635A] group-hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.15em] uppercase">
-                Découvrir le projet
+                {t("caseStudy.discoverProject")}
                 <ArrowUpRight
                   size={14}
                   className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500"

@@ -260,7 +260,7 @@ export function Header() {
                 {/* Social links */}
                 <div className="flex items-center gap-8">
                   <a 
-                    href="www.linkedin.com/in/adjibogou-machaallah-32937126a" 
+                    href="https://www.linkedin.com/in/abdul-malik-nasir-musa-32756b148/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-xs text-black tracking-[0.15em] uppercase hover:text-[var(--primary)] transition-colors font-medium relative group"
@@ -270,7 +270,7 @@ export function Header() {
                   </a>
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/20" />
                   <a 
-                    href="https://github.com/machaallah1" 
+                    href="https://github.com/MKN-dev" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-xs text-black tracking-[0.15em] uppercase hover:text-[var(--primary)] transition-colors font-medium relative group"

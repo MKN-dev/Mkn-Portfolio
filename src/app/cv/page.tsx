@@ -5,34 +5,32 @@ import { Download, ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { useLanguage, useTranslation } from "@/lib/i18n";
 
-const CV_PAGES: string[] = [];
-var CV_PDF_PATH = "/cv/abdul-malik-nasir-musa-cv.pdf";
 const CV_FILENAME = "Abdul_Malik_Nasir_Musa_CV.pdf";
+
+// Images générées à partir du CV — à placer dans public/cv/pages/
+const CV_PAGES_FR = [
+  "/cv/pages/page-1.png",
+  "/cv/pages/page-2.png",
+  "/cv/pages/page-3.png",
+];
+
+const CV_PAGES_EN = [
+  "/cv/pages/page-1-en.png",
+  "/cv/pages/page-2-en.png",
+  "/cv/pages/page-3-en.png",
+];
+
+// Le vrai fichier PDF — pour le téléchargement et le lien "nouvel onglet"
+const CV_PDF_PATH_FR = "/cv/abdul-malik-nasir-musa-cv.pdf";
+const CV_PDF_PATH_EN = "/cv/abdul-malik-nasir-musa-cv-en.pdf";
 
 export default function CVPage() {
   const { t } = useLanguage();
   const { locale } = useTranslation();
 
-    // Images générées à partir du CV — à placer dans public/cv/pages/
-    if (locale === "fr") {
-      CV_PAGES.push ( 
-        "/cv/pages/page-1.png",
-        "/cv/pages/page-2.png",
-        "/cv/pages/page-3.png",
-      );
-      // Le vrai fichier PDF — pour le téléchargement et le lien "nouvel onglet"
-      CV_PDF_PATH = "/cv/abdul-malik-nasir-musa-cv.pdf";
-    } else if (locale === "en") {
-      CV_PAGES.push ( 
-        "/cv/pages/page-1-en.png",
-        "/cv/pages/page-2-en.png",
-        "/cv/pages/page-3-en.png",
-      );
-      // Le vrai fichier PDF — pour le téléchargement et le lien "nouvel onglet"
-      CV_PDF_PATH = "/cv/abdul-malik-nasir-musa-cv-en.pdf";
-    }
-
-
+  const isEnglish = locale === "en";
+  const CV_PAGES = isEnglish ? CV_PAGES_EN : CV_PAGES_FR;
+  const CV_PDF_PATH = isEnglish ? CV_PDF_PATH_EN : CV_PDF_PATH_FR;
 
   return (
     <div className="min-h-screen pt-24 md:pt-32 pb-20">
