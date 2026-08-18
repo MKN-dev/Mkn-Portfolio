@@ -5,6 +5,8 @@ import path from "node:path";
 const loaderPath = require.resolve('orchids-visual-edits/loader.js');
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
+
   webpack: (config) => {
     config.resolve.alias.canvas = false;
     return config;
