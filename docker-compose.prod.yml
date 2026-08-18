@@ -1,6 +1,6 @@
 services:
   mkn_portfolio:
-    image: mkn228/mkn:latest
+    image: mkn228/mkn_portfolio:latest
     container_name: mkn_portfolio
     restart: unless-stopped
 
