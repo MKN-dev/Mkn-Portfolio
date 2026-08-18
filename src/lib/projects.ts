@@ -44,7 +44,7 @@ export const projects: Project[] = [
       "MoniTrack est une application mobile multiplateforme conçue pour centraliser la gestion des comptes clients, des transactions financières et des opérations administratives d'une structure. Le système distingue les rôles CLIENT, ADMIN et SUPER_ADMIN et combine authentification sécurisée, gestion des permissions, fonctionnement offline-first et synchronisation des données.",
     vision:
       "Construire une application métier fiable, sécurisée et utilisable même lorsque la connectivité n'est pas garantie.",
-    thumbnail: "/images/projects/monitrack/monitrack_presntation.png",
+    thumbnail: "/images/projects/monitrack/moniTrack_presntation.png",
     gallery: [
       "/images/projects/monitrack/01.png",
       "/images/projects/monitrack/02.png",
