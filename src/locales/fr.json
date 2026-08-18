@@ -1,0 +1,372 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "process": "Processus",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "header": {
+    "available": "Disponible"
+  },
+  "footer": {
+    "cta": "Créons quelque chose",
+    "ctaHighlight": "de robuste",
+    "navigation": "Navigation",
+    "social": "Social",
+    "contact": "Contact",
+    "contactMe": "Me contacter",
+    "methodology": "Méthodologie",
+    "engineering": "Ingénierie & Architecture"
+  },
+  "home": {
+    "hero": {
+      "title1": "Développeur de",
+      "titleHighlight1": "solutions",
+      "title2": "qui pense",
+      "titleHighlight2": "architecture",
+      "title3": "avant de coder",
+      "subtitle": "Conception d'applications robustes, scalables et centrées sur la performance.",
+      "subtitleLocation": "Basé à Lomé, Togo — disponible pour transformer vos visions techniques en réalité.",
+      "ctaProjects": "Voir les projets",
+      "rotatingBadge": "DEVELOPPEUR | MOBILE & BACKEND;"
+    },
+    "marquee": {
+      "skills": [
+        "Kotlin",
+        "Kotlin Multiplatform",
+        "Jetpack Compose",
+        "Compose Multiplatform",
+        "Java",
+        "Spring Boot",
+        "Spring Security",
+        "PostgreSQL",
+        "Redis",
+        "REST APIs",
+        "JWT",
+        "Docker",
+        "Clean Architecture",
+        "MVI",
+        "MVVM",
+        "MVC"
+      ]
+    },
+    "stats": {
+      "projects": "Projets livrés",
+      "sectors": "Secteurs techniques",
+      "experience": "Ans d'expérience",
+      "quality": "Code de qualité"
+    },
+    "selectedProjects": {
+      "label": "Portfolio",
+      "title": "Projets sélectionnés",
+      "viewAll": "Tous les projets"
+    },
+    "designShowcase": {
+      "label": "De l'architecture au déploiement",
+      "title": "Ingénierie Logiciel | Mobile & Backend"
+    },
+    "process": {
+      "label": "Méthodologie",
+      "title": "Approche & cycle de vie",
+      "description": "De la spécification à la maintenance — chaque étape garantit la robustesse et la scalabilité de vos solutions.",
+      "steps": [
+        {
+          "num": "01",
+          "title": "Analyse & cadrage",
+          "desc": "Comprendre les besoins métier, les objectifs du produit et les contraintes techniques. Définir le périmètre fonctionnel, les priorités et les flux principaux avant l'implémentation."
+        },
+        {
+          "num": "02",
+          "title": "Architecture & conception",
+          "desc": "Concevoir l'architecture de la solution, les responsabilités des composants, les modèles de données et les choix technologiques. Préparer une base claire, maintenable et capable d'évoluer."
+        },
+        {
+          "num": "03",
+          "title": "Développement itératif",
+          "desc": "Construire la solution par étapes en privilégiant la qualité du code, la séparation des responsabilités, la réutilisabilité et la cohérence entre les différentes couches du système."
+        },
+        {
+          "num": "04",
+          "title": "Validation & optimisation",
+          "desc": "Vérifier les fonctionnalités, les flux métier et les intégrations, puis améliorer la fiabilité, les performances et l'expérience utilisateur selon les besoins du produit."
+        },
+        {
+          "num": "05",
+          "title": "Déploiement & évolution",
+          "desc": "Préparer la mise en production, intégrer les différents services nécessaires et assurer la maintenance, les corrections et l'évolution progressive de la solution."
+        }
+      ]
+    },
+    "strengths": {
+      "label": "Expertise",
+      "title": "Ce que j'apporte techniquement",
+      "items": [
+        {
+          "num": "01",
+          "title": "Architecture & conception",
+          "desc": "Conception de solutions structurées autour de responsabilités clairement séparées, avec une attention particulière portée à la maintenabilité, à l'évolution et à la cohérence globale du système."
+        },
+        {
+          "num": "02",
+          "title": "Mobile & Backend",
+          "desc": "Développement d'applications mobiles multiplateformes avec Kotlin Multiplatform et Compose Multiplatform, ainsi que de services backend avec Java, Spring Boot, APIs REST et bases de données."
+        },
+        {
+          "num": "03",
+          "title": "Sécurité & fiabilité",
+          "desc": "Intégration de mécanismes d'authentification, rôles et permissions, gestion des sessions, JWT, refresh tokens, 2FA, rate limiting et fonctionnement offline-first selon les besoins des projets."
+        },
+        {
+          "num": "04",
+          "title": "Vision produit & intégration",
+          "desc": "Approche orientée produit avec une attention portée aux parcours utilisateurs, aux règles métier et à l'intégration entre applications mobiles, APIs, interfaces web, CRM et services externes."
+        }
+      ]
+    },
+    "cta": {
+      "label": "Me contacter",
+      "title1": "Vous cherchez un développeur qui",
+      "titleHighlight": "comprend vos enjeux métier",
+      "title2": "avant d'écrire une ligne de code ?",
+      "button": "Discutons"
+    }
+  },
+  "about": {
+    "label": "À propos",
+    "hero": {
+      "title1": "Un ingénieur qui traduit la",
+      "titleHighlight1": "complexité technique",
+      "title2": "en solutions",
+      "titleHighlight2": "scalables",
+      "title3": "."
+    },
+    "bio": {
+      "intro": "Je suis Abdul Malik Nasir Musa, Software Engineer spécialisé en développement Mobile & Backend, basé à Lomé, Togo.",
+      "p1": "Ma démarche repose sur la rigueur technique et la compréhension profonde des systèmes. Avant d'écrire la première ligne de code, j'analyse les besoins, je définis l'architecture et je prévois la scalabilité. Pour moi, une application réussie est une application qui dure, performe et reste maintenable.",
+      "p2": "Spécialisé dans le développement mobile android natif et multiplateforme (Kotlin Multiplatform, Jetpack Compose Multiplatform, Android, iOS) et les architectures backend robustes (Spring Boot, Java, PostgreSQL, Redis), je conçois des solutions complètes : de la modélisation des données à l'expérience utilisateur finale, en passant par l'authentification, la sécurité et le déploiement. J'ai conçu et développé CanjiX, une plateforme e-commerce en production utilisée par plus de 700 utilisateurs.",
+      "statProjects": "Projets",
+      "statExperience": "Ans d'exp.",
+      "statBased": "Basé"
+    },
+    "showcase": {
+      "label": "Ingénierie & Qualité",
+      "title": "Robustesse, performance, maintenabilité"
+    },
+    "experience": {
+      "label": "Parcours",
+      "title": "Expérience",
+      "items": [
+        {
+          "role": "Fondateur & Software Engineer — Écosystème CanjiX",
+          "company": "CanjiX",
+          "period": "2024 — Présent",
+          "desc": "Conception et développement d'un écosystème e-commerce complet destiné au marché ouest-africain : application mobile Kotlin Multiplatform / Compose Multiplatform, API REST Spring Boot (authentification 2FA, JWT, gestion des stocks et des paiements), landing page Next.js et CRM d'administration. Plateforme en production, utilisée par plus de 700 utilisateurs depuis avril 2026."
+        },
+        {
+          "role": "Développeur Freelance — Desktop Launcher",
+          "company": "Procedural World Lab",
+          "period": "07/2024 — 01/2025, Refonte 07/2026 — 10/2026",
+          "desc": "Développement d'un launcher desktop multiplateforme (Kotlin Multiplatform, Compose Multiplatform) dédié à la distribution et à la gestion des produits Unreal Engine : authentification, store intégré, système de téléchargement, installation automatisée et gestion du cycle de vie des produits."
+        },
+        {
+          "role": "Développeur Freelance — Application de gestion financière",
+          "company": "MoniTrack",
+          "period": "02/2026 — 05/2026",
+          "desc": "Conception d'une application mobile multiplateforme de gestion des comptes clients et des transactions financières, avec authentification sécurisée (Firebase, biométrie), gestion des rôles CLIENT / ADMIN / SUPER_ADMIN, fonctionnement offline-first et génération de rapports financiers au format PDF."
+        },
+        {
+          "role": "Stagiaire Développeur Mobile",
+          "company": "Boutique RS Business",
+          "period": "2024",
+          "desc": "Développement d'une application mobile de gestion de boutique (Kotlin, Jetpack Compose) pour centraliser les opérations quotidiennes : enregistrement des produits, suivi des stocks et gestion des ventes."
+        }
+      ]
+    },
+    "cv": {
+      "title": "Consulter mon CV technique",
+      "subtitle": "Parcours détaillé, stack technique et projets — format A4",
+      "button": "Voir le CV"
+    },
+    "skills": {
+      "label": "Expertise",
+      "title": "Stack & compétences",
+      "categories": [
+        {
+          "category": "Développement Mobile",
+          "items": [
+            "Kotlin",
+            "Kotlin Multiplatform",
+            "Jetpack Compose",
+            "Compose Multiplatform",
+            "Android / iOS"
+          ]
+        },
+        {
+          "category": "Développement Backend",
+          "items": [
+            "Java",
+            "SQL",
+            "Spring Boot",
+            "Spring Security",
+            "REST APIs",
+            "JWT"
+          ]
+        },
+        {
+          "category": "Architecture & Données",
+          "items": [
+            "MVVM / MVI / MVC",
+            "Clean Architecture",
+            "Offline-first",
+            "PostgreSQL",
+            "Redis"
+          ]
+        },
+        {
+          "category": "Outils & Infrastructure",
+          "items": [
+            "Docker",
+            "Git / GitHub / GitLab",
+            "Firebase",
+            "AWS S3",
+            "Postman"
+          ]
+        }
+      ]
+    },
+    "philosophy": {
+      "label": "Philosophie",
+      "quote1": "« Le code n'est pas une fin en soi, c'est un outil pour bâtir des solutions robustes et durables. »",
+      "quote2": "« La scalabilité commence par une architecture propre et une vision claire des enjeux métier. »"
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title1": "Un projet qui mérite",
+    "titleHighlight1": "une vraie",
+    "title2": "expertise",
+    "titleHighlight2": "technique",
+    "title3": "?",
+    "subtitle": "Parlons technique, architecture et scalabilité. Je reviens vers vous avec une analyse concrète pour votre projet.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-moi de vos défis techniques...",
+      "submit": "Envoyer le message"
+    },
+    "success": {
+      "title": "Message reçu.",
+      "description": "Je reviens vers vous rapidement pour discuter des prochaines étapes techniques de votre projet."
+    },
+    "info": {
+      "networks": "Réseaux",
+      "location": "Localisation"
+    }
+  },
+  "process": {
+    "label": "Processus Technique",
+    "title": "Méthodologie",
+    "subtitle": "Un cycle de développement structuré pour garantir des solutions robustes, scalables et performantes.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Analyse & Stratégie",
+        "desc": "Chaque projet commence par une compréhension profonde des objectifs business et des contraintes techniques. Nous définissons ensemble le périmètre fonctionnel et choisissons la stack technologique la plus adaptée pour garantir la pérennité de la solution.",
+        "methods": [
+          "Cadrage technique",
+          "Analyse des besoins",
+          "Choix de la stack",
+          "Audit de faisabilité"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Architecture & Modélisation",
+        "desc": "L'architecture logicielle est le fondement de la scalabilité. Je conçois le schéma de la base de données, l'architecture des APIs et la structure globale de l'application. Cette phase permet d'anticiper les défis techniques avant l'implémentation.",
+        "methods": [
+          "Modélisation de données",
+          "Architecture API",
+          "Design Patterns",
+          "Schémas techniques"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Développement & Implémentation",
+        "desc": "Le code est écrit avec rigueur, en suivant les principes Clean Code et DRY. Que ce soit pour le Web (Next.js) ou le Mobile (Flutter), l'accent est mis sur la performance, la lisibilité et la maintenabilité du code source.",
+        "methods": [
+          "Code Clean & Modulaire",
+          "Développement itératif",
+          "Gestion d'état complexe",
+          "Intégration UI/UX"
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Tests & Assurance Qualité",
+        "desc": "La robustesse d'une solution passe par une validation rigoureuse. Tests unitaires, tests d'intégration et revue de code permettent d'assurer une expérience sans bug et une sécurité optimale dès le premier jour.",
+        "methods": [
+          "Tests Unitaires",
+          "Revues de code",
+          "Optimisation performance",
+          "Tests de sécurité"
+        ]
+      },
+      {
+        "num": "05",
+        "title": "Déploiement & Maintenance",
+        "desc": "La mise en production est sécurisée via des pipelines CI/CD. Une fois déployé, le projet entre dans une phase de monitoring et de maintenance évolutive pour s'adapter aux nouveaux besoins et rester à la pointe de la technologie.",
+        "methods": [
+          "CI/CD Pipelines",
+          "Déploiement Cloud",
+          "Monitoring",
+          "Maintenance évolutive"
+        ]
+      }
+    ],
+    "philosophyLabel": "Philosophie Technique",
+    "philosophyQuote": "« La rigueur technique n'est pas une option, c'est la condition sine qua non de la réussite d'un produit digital. »"
+  },
+  "projects": {
+    "label": "Portfolio technique",
+    "title": "Projets",
+    "subtitle": "Sélection de projets web et mobiles mettant en œuvre des architectures robustes et des solutions techniques innovantes.",
+    "filters": {
+      "all": "Tous",
+      "web": "Web",
+      "mobile": "Mobile",
+      "fullstack": "Fullstack",
+      "architecture": "Architecture"
+    },
+    "projectCount": "{{count}} projet",
+    "projectCountPlural": "{{count}} projets",
+    "details": "Détails",
+    "inDevelopment": "En développement",
+    "comingSoon": "Prochainement",
+    "comingSoonTitle": "Nouvelle architecture en cours",
+    "comingSoonDesc": "De nouvelles réalisations techniques sont régulièrement ajoutées au portfolio."
+  },
+  "caseStudy": {
+    "allProjects": "Tous les projets",
+    "seeProject": "Voir le projet",
+    "nextProject": "Projet suivant",
+    "discoverProject": "Découvrir le projet",
+    "mobileInterface": "Interface Mobile Native",
+    "mobileViews": "Vues mobiles",
+    "architectureIdentity": "Architecture & Identité",
+    "techTools": "Technologies & Outils",
+    "galleryTitle": "Détails du projet",
+    "system": "système"
+  },
+  "cv": {
+    "back": "Retour",
+    "download": "Télécharger PDF",
+    "newTab": "Nouvel onglet",
+    "loadError": "L'aperçu n'a pas pu se charger.",
+    "openInNewTab": "Ouvrir le PDF dans un nouvel onglet"
+  }
+}

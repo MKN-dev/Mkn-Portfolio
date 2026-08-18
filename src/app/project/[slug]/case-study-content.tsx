@@ -22,6 +22,8 @@ import {
   LogicSequence,
 } from "@/components/visuals";
 import type { Project, ProjectSection } from "@/lib/projects";
+import { useLanguage } from "@/lib/i18n";
+import { useLocalizedProjects } from "@/lib/use-localized-projects";
 
 /* ── Animated wrapper ── */
 function AnimSection({
@@ -96,29 +98,30 @@ function MetricCard({
   );
 }
 
-/* ── Full-bleed parallax image ── */
+/* ── Full-bleed image (natural size, no crop) ── */
 function FullBleedImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [-40, 40]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1, 1.05]);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <div className="py-8 md:py-16">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8">
-        <div ref={ref} className="relative overflow-hidden aspect-[16/9] bg-[#111]">
-          <motion.div style={{ y, scale }} className="absolute inset-0">
-            <Image src={src} alt={alt} fill className="object-cover" sizes="100vw" />
-          </motion.div>
-          <div className="absolute inset-0" />
-        </div>
-
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 1 }}
+          className="relative overflow-hidden bg-[#111]"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt={alt} className="w-full h-auto block" loading="lazy" />
+        </motion.div>
       </div>
     </div>
   );
 }
 
-/* ── Browser mockup frame ── */
+/* ── Browser mockup frame (natural size, no crop) ── */
 function BrowserMockup({ src, alt }: { src: string; alt: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -148,8 +151,9 @@ function BrowserMockup({ src, alt }: { src: string; alt: string }) {
               </div>
             </div>
           </div>
-          <div className="relative aspect-[16/10] bg-[#0E0D0C]">
-            <Image src={src} alt={alt} fill className="object-cover object-top" sizes="100vw" />
+          <div className="relative bg-[#0E0D0C]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={src} alt={alt} className="w-full h-auto block" loading="lazy" />
           </div>
         </div>
       </div>
@@ -181,7 +185,7 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-/* ── Duo image grid (side by side) ── */
+/* ── Duo image grid (side by side, natural size) ── */
 function DuoImages({ images, alts }: { images: string[]; alts: string[] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -194,17 +198,17 @@ function DuoImages({ images, alts }: { images: string[]; alts: string[] }) {
       className="py-8 md:py-16"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
           {images.slice(0, 2).map((src, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: i * 0.15 }}
-              className="relative overflow-hidden aspect-[4/3] bg-[#111]"
+              className="relative overflow-hidden bg-[#111]"
             >
-              <Image src={src} alt={alts[i] || ""} fill className="object-cover" sizes="50vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/20 to-transparent" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={src} alt={alts[i] || ""} className="w-full h-auto block" loading="lazy" />
             </motion.div>
           ))}
         </div>
@@ -213,7 +217,7 @@ function DuoImages({ images, alts }: { images: string[]; alts: string[] }) {
   );
 }
 
-/* ── Trio image grid (1 big + 2 stacked) ── */
+/* ── Trio image grid (1 big + 2 stacked, natural size) ── */
 function TrioImages({ images, alts }: { images: string[]; alts: string[] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -231,10 +235,10 @@ function TrioImages({ images, alts }: { images: string[]; alts: string[] }) {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative overflow-hidden aspect-[4/3] bg-[#111]"
+            className="relative overflow-hidden bg-[#111]"
           >
-            <Image src={images[0]} alt={alts[0] || ""} fill className="object-cover" sizes="66vw" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/20 to-transparent" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={images[0]} alt={alts[0] || ""} className="w-full h-auto block" loading="lazy" />
           </motion.div>
           <div className="flex flex-col gap-4 md:gap-6">
             {images.slice(1, 3).map((src, i) => (
@@ -243,10 +247,10 @@ function TrioImages({ images, alts }: { images: string[]; alts: string[] }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.15 + i * 0.1 }}
-                className="relative overflow-hidden aspect-[4/3] bg-[#111] flex-1"
+                className="relative overflow-hidden bg-[#111]"
               >
-                <Image src={src} alt={alts[i + 1] || ""} fill className="object-cover" sizes="33vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/20 to-transparent" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt={alts[i + 1] || ""} className="w-full h-auto block" loading="lazy" />
               </motion.div>
             ))}
           </div>
@@ -295,7 +299,7 @@ function DuoPhones({ leftSrc, rightSrc, alt }: { leftSrc: string; rightSrc: stri
   );
 }
 
-/* ── Desktop + Mobile side by side mockup ── */
+/* ── Desktop + Mobile side by side mockup (desktop natural size, mobile unchanged) ── */
 function DeviceDuo({ desktopSrc, mobileSrc, alt }: { desktopSrc: string; mobileSrc: string; alt: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -323,8 +327,9 @@ function DeviceDuo({ desktopSrc, mobileSrc, alt }: { desktopSrc: string; mobileS
                 </div>
               </div>
             </div>
-            <div className="relative aspect-[16/10] bg-[#0E0D0C]">
-              <Image src={desktopSrc} alt={`${alt} — Desktop`} fill className="object-cover object-top" sizes="100vw" />
+            <div className="relative bg-[#0E0D0C]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={desktopSrc} alt={`${alt} — Desktop`} className="w-full h-auto block" loading="lazy" />
             </div>
           </div>
           {/* Mobile overlaid */}
@@ -536,12 +541,16 @@ function Divider() {
    ══════════════════════════════════════════════════════ */
 
 export function CaseStudyContent({
-  project,
-  next,
+  slug,
 }: {
-  project: Project;
-  next: Project;
+  slug: string;
 }) {
+  const localizedProjects = useLocalizedProjects();
+  const project = localizedProjects.find((p) => p.slug === slug);
+  const idx = localizedProjects.findIndex((p) => p.slug === slug);
+  const next = localizedProjects[(idx + 1) % localizedProjects.length];
+  const { t } = useLanguage();
+
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -558,8 +567,13 @@ export function CaseStudyContent({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  if (!project || !next) return null;
+
   const g = project.gallery;
+  const thumbnail = project.thumbnail;
   const sections = project.sections;
+  const lastImg = g[g.length - 1];
+  const beforeLastImg = g[g.length - 2];
 
   // We interleave visuals between sections for maximum impact
   // Layout: Hero → Vision → Metrics → Info bar → S0 → FullBleed → S1 → BrowserMockup → S2 → DuoImages → S3 → DeviceDuo → Colors/Tools → S4 → TrioImages → S5 → PhoneMockup → S6 → FullBleed → remaining → NextProject
@@ -572,15 +586,15 @@ export function CaseStudyContent({
   if (isMobileProject) {
     // Mobile-first layout
     visualSlots.push(
-      { after: 0, element: <FullBleedImage key="fb1" src={g[1]} alt={`${project.title} — Système`} caption="Vue d'ensemble et contexte" /> },
+      { after: 0, element: <FullBleedImage key="fb1" src={thumbnail} alt={`${project.title} — Système`} caption="Vue d'ensemble et contexte" /> },
       { after: 1, element: <UseCaseModeling key="uc1" className="max-w-[1200px] mx-auto px-6" /> },
-      { after: 2, element: <DuoImages key="duo1" images={[g[3], g[4]]} alts={[`${project.title} — Detail 1`, `${project.title} — Detail 2`]} /> },
-      { after: 3, element: <DuoPhones key="phones1" leftSrc={g[5]} rightSrc={g[6]} alt={`${project.title} — Mobile Screens`} /> }
+      { after: 2, element: <DuoImages key="duo1" images={[beforeLastImg, lastImg]} alts={[`${project.title} — Detail 1`, `${project.title} — Detail 2`]} /> },
+      { after: 3, element: <DuoPhones key="phones1" leftSrc={g[0]} rightSrc={g[1]} alt={`${project.title} — Mobile Screens`} /> }
     );
   } else {
     // Standard Architecture layout
     visualSlots.push(
-      { after: 0, element: null },
+      { after: 0, element: <FullBleedImage key="fb1" src={thumbnail} alt={`${project.title} — Système`} caption="Vue d'ensemble et contexte" /> },
       { after: 1, element: <SystemArchitecture key="sa1" className="max-w-[1200px] mx-auto px-6" /> },
       { after: 2, element: null },
       { after: 3, element: <UseCaseModeling key="um1" className="max-w-[1200px] mx-auto px-6" /> }
@@ -638,7 +652,7 @@ export function CaseStudyContent({
         className="relative min-h-screen flex flex-col justify-end pb-16 md:pb-24 pt-32 overflow-hidden"
       >
         <motion.div style={{ scale: imageScale }} className="absolute inset-0 z-0">
-          <Image src={g[0]} alt={project.title} fill className="object-cover" priority />
+          <Image src={thumbnail} alt={project.title} fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/70 to-[#080808]/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/50 to-transparent" />
         </motion.div>
@@ -657,7 +671,7 @@ export function CaseStudyContent({
               className="inline-flex items-center gap-2 text-[11px] text-[var(--primary)]/60 hover:text-[var(--primary)] transition-colors duration-500 mb-12 tracking-[0.15em] uppercase"
             >
               <ArrowLeft size={12} />
-              Tous les projets
+              {t("allProjects")}
             </Link>
           </MaskReveal>
 
@@ -797,22 +811,22 @@ export function CaseStudyContent({
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
             <SectionLabel num="Gallerie" title="Détails du projet" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {g.slice(1, 4).map((src, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              {g.slice(1, 3).map((src, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.7, delay: i * 0.1 }}
-                  className="relative overflow-hidden aspect-[4/3] bg-neutral-100 group"
+                  className="relative overflow-hidden bg-neutral-100 group"
                 >
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={src}
                     alt={`${project.title} — Detail ${i + 1}`}
-                    fill
-                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-auto block transition-all duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>

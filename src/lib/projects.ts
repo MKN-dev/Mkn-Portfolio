@@ -44,11 +44,12 @@ export const projects: Project[] = [
       "MoniTrack est une application mobile multiplateforme conçue pour centraliser la gestion des comptes clients, des transactions financières et des opérations administratives d'une structure. Le système distingue les rôles CLIENT, ADMIN et SUPER_ADMIN et combine authentification sécurisée, gestion des permissions, fonctionnement offline-first et synchronisation des données.",
     vision:
       "Construire une application métier fiable, sécurisée et utilisable même lorsque la connectivité n'est pas garantie.",
-    thumbnail: "/images/projects/monitrack/01.png",
+    thumbnail: "/images/projects/monitrack/monitrack_presntation.png",
     gallery: [
       "/images/projects/monitrack/01.png",
       "/images/projects/monitrack/02.png",
       "/images/projects/monitrack/03.png",
+      "/images/projects/monitrack/04.png",
     ],
     tools: [
       "Kotlin",
@@ -174,7 +175,7 @@ export const projects: Project[] = [
       "Procedural World Lab est un launcher desktop multiplateforme destiné à la distribution et à la gestion de produits pour Unreal Engine. L'application centralise l'authentification, le store, les téléchargements, l'installation des produits et la gestion des projets Unreal Engine.",
     vision:
       "Transformer un simple launcher en véritable point d'entrée pour l'achat, le téléchargement, l'installation et la gestion des produits Unreal Engine.",
-    thumbnail: "/images/projects/pwl/01.png",
+    thumbnail: "/images/projects/pwl/pwl_presntation.png",
     gallery: [
       "/images/projects/pwl/01.png",
       "/images/projects/pwl/02.png",
@@ -295,7 +296,7 @@ export const projects: Project[] = [
       "Écosystème e-commerce et marketplace multiplateforme pour le marché ouest-africain",
     type: "Produit · Mobile · Backend · Web",
     sector: "E-commerce · Marketplace · Logistique",
-    tags: ["KMP", "Spring Boot", "E-commerce", "Marketplace", "Production"],
+    tags: ["Mobile", "KMP", "Spring Boot", "E-commerce", "Marketplace", "Production"],
     year: "2024–Aujourd'hui",
     role: "Founder · Software Engineer",
     scope:
@@ -304,11 +305,13 @@ export const projects: Project[] = [
       "CanjiX est un produit entrepreneurial que j'ai conçu et développé pour le marché ouest-africain. L'écosystème regroupe une application mobile, une API REST, une landing page et un CRM / back-office afin de couvrir la découverte des produits, les commandes, les paiements, les stocks, la livraison et les opérations administratives.",
     vision:
       "Construire une plateforme e-commerce adaptée aux réalités du marché ouest-africain, avec une architecture capable d'évoluer indépendamment sur mobile, backend, web et opérations internes.",
-    thumbnail: "/images/projects/canjix/01.png",
+    thumbnail: "/images/projects/canjix/canjix_presntation.png",
     gallery: [
       "/images/projects/canjix/01.png",
       "/images/projects/canjix/02.png",
       "/images/projects/canjix/03.png",
+      "/images/projects/canjix/crm.png",
+      "/images/projects/canjix/landing-page.png"
     ],
     tools: [
       "Kotlin",
@@ -477,7 +480,7 @@ export const projects: Project[] = [
       "RS Business est une application mobile conçue pour centraliser les opérations quotidiennes d'une boutique à Lomé : produits, stocks et ventes. Le projet a servi à structurer une base métier pouvant évoluer vers des fonctionnalités plus avancées de gestion commerciale.",
     vision:
       "Transformer les opérations quotidiennes d'une boutique en un système mobile simple, structuré et évolutif.",
-    thumbnail: "/images/projects/rs-business/01.png",
+    thumbnail: "/images/projects/rs-business/rs_business_presntation.png",
     gallery: [
       "/images/projects/rs-business/01.png",
       "/images/projects/rs-business/02.png",

@@ -16,27 +16,35 @@ export function CustomCursor() {
 
   useEffect(() => {
     window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+    };
   }, [onMove]);
 
   useEffect(() => {
     const handleOver = (e: Event) => {
       const target = e.target as HTMLElement;
       const cursorEl = target.closest("[data-cursor]") as HTMLElement | null;
+
       if (cursorEl) {
         setHovered(true);
         setLabel(cursorEl.dataset.cursor || "");
       }
     };
+
     const handleOut = (e: Event) => {
       const target = e.target as HTMLElement;
+
       if (target.closest("[data-cursor]")) {
         setHovered(false);
         setLabel("");
       }
     };
+
     document.addEventListener("mouseover", handleOver);
     document.addEventListener("mouseout", handleOut);
+
     return () => {
       document.removeEventListener("mouseover", handleOver);
       document.removeEventListener("mouseout", handleOut);
@@ -54,7 +62,12 @@ export function CustomCursor() {
           scale: hovered ? 0 : 1,
           opacity: visible ? 1 : 0,
         }}
-        transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+        transition={{
+          type: "spring",
+          stiffness: 500,
+          damping: 28,
+          mass: 0.5,
+        }}
       >
         <div className="w-2 h-2 rounded-full bg-white" />
       </motion.div>
@@ -69,14 +82,22 @@ export function CustomCursor() {
           height: hovered ? 80 : 32,
           opacity: visible ? 1 : 0,
         }}
-        transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.8 }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 20,
+          mass: 0.8,
+        }}
       >
         <div
-          className={`w-full h-full rounded-full border transition-all duration-300 flex items-center justify-center ${
+          className={`w-full h-full rounded-full transition-all duration-300 flex items-center justify-center ${
             hovered
-              ? "border-[#047607] bg-[#047607]/10 backdrop-blur-sm"
-              : "border-[#047607]"
+              ? "bg-[color-mix(in_srgb,var(--primary)_10%,transparent)] backdrop-blur-sm"
+              : ""
           }`}
+          style={{
+            border: `1px solid var(--primary)`,
+          }}
         >
           <AnimatePresence>
             {hovered && label && (

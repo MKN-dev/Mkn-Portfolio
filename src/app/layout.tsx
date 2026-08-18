@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { CustomCursor } from "@/components/custom-cursor";
+import { LanguageProvider } from "@/lib/i18n";
 import Script from "next/script";
 
 const inter = Inter({
@@ -20,17 +21,17 @@ const crimson = Crimson_Text({
 });
 
 export const metadata: Metadata = {
-  title: "Machaallah ADJIBOGOU — Développeur Web et Mobile",
+  title: "Abdul Malik Nasir — Software Engineer | Mobile & Backend Developer",
   description:
-    "Développeur Web et Mobile (Architecture Logicielle) basé à Lomé. Conception de solutions digitales robustes et scalables. Portfolio de projets, méthodologie et expertise technique.",
+    "Software Engineer spécialisé en développement mobile et backend, basé à Lomé, Togo. Kotlin Multiplatform, Compose Multiplatform, Spring Boot — conception d'applications robustes et scalables. Portfolio de projets, méthodologie et expertise technique.",
   icons: {
     icon: [
-      { url: "/mach.png" },
-      { url: "/mach.png", sizes: "16x16", type: "image/png" },
-      { url: "/mach.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png" },
+      { url: "/icon.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [
-      { url: "/mach.png", sizes: "180x180", type: "image/png" },
+      { url: "/icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/site.webmanifest",
@@ -47,16 +48,30 @@ export default function RootLayout({
         className={`${inter.variable} ${crimson.variable} antialiased font-sans`}
       >
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J0SRRQCRET"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-J0SRRQCRET');
+          `}
+        </Script>
+        <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
           strategy="afterInteractive"
           data-orchids-project-id="f7a6d986-f3fc-456c-93c3-073515ba32e2"
         />
-        <SmoothScroll />
-        <CustomCursor />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <SmoothScroll />
+          <CustomCursor />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
         <VisualEditsMessenger />
       </body>
     </html>

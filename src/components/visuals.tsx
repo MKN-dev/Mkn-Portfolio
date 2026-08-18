@@ -29,14 +29,14 @@ export function AbstractBlob({ className = "", variant = 1 }: { className?: stri
     >
       <defs>
         <linearGradient id={`blob-grad-${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="rgba(4, 118, 7, 0.2)" />
-          <stop offset="100%" stopColor="rgba(4, 118, 7, 0.05)" />
+          <stop offset="0%" stopColor="rgba(117, 123, 173, 0.2)" />
+          <stop offset="100%" stopColor="rgba(117, 123, 173, 0.05)" />
         </linearGradient>
       </defs>
       <path
         d={paths[(variant - 1) % paths.length]}
         fill={`url(#blob-grad-${variant})`}
-        stroke="rgba(4, 118, 7, 0.15)"
+        stroke="rgba(117, 123, 173, 0.15)"
         strokeWidth="0.5"
       />
     </motion.svg>
@@ -68,7 +68,7 @@ export function WireframeGrid({ className = "" }: { className?: string }) {
               y1={y}
               x2={400 - indent}
               y2={y}
-              stroke="rgba(4, 118, 7, 0.12)"
+              stroke="rgba(117, 123, 173, 0.12)"
               strokeWidth="0.5"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : {}}
@@ -86,7 +86,7 @@ export function WireframeGrid({ className = "" }: { className?: string }) {
               y1={40}
               x2={x + (i - 4.5) * 8}
               y2={250}
-              stroke="rgba(4, 118, 7, 0.1)"
+              stroke="rgba(117, 123, 173, 0.1)"
               strokeWidth="0.5"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : {}}
@@ -132,33 +132,33 @@ export function WireframeMockup({ className = "" }: { className?: string }) {
     >
         <svg viewBox="0 0 360 640" className="w-full h-full">
           {/* Phone frame */}
-          <rect x="10" y="10" width="340" height="620" rx="30" fill="none" stroke="rgba(4, 118, 7, 0.22)" strokeWidth="1" />
+          <rect x="10" y="10" width="340" height="620" rx="30" fill="none" stroke="rgba(117, 123, 173, 0.22)" strokeWidth="1" />
 
           {/* Status bar */}
-          <rect x="30" y="30" width="80" height="4" rx="2" fill="rgba(4, 118, 7, 0.18)" />
-          <rect x="250" y="30" width="80" height="4" rx="2" fill="rgba(4, 118, 7, 0.18)" />
+          <rect x="30" y="30" width="80" height="4" rx="2" fill="rgba(117, 123, 173, 0.18)" />
+          <rect x="250" y="30" width="80" height="4" rx="2" fill="rgba(117, 123, 173, 0.18)" />
 
           {/* Header placeholder */}
           <motion.rect
-            x="30" y="60" width="200" height="10" rx="3" fill="rgba(4, 118, 7, 0.2)"
+            x="30" y="60" width="200" height="10" rx="3" fill="rgba(117, 123, 173, 0.2)"
             initial={{ scaleX: 0 }} animate={isInView ? { scaleX: 1 } : {}} style={{ transformOrigin: "left" }}
             transition={{ duration: 0.7, delay: 0.3 }}
           />
 
           {/* Hero image placeholder */}
           <motion.rect
-            x="30" y="100" width="300" height="180" rx="8" fill="rgba(4, 118, 7, 0.08)" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="0.5"
+            x="30" y="100" width="300" height="180" rx="8" fill="rgba(117, 123, 173, 0.08)" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="0.5"
             initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
           />
           {/* Cross lines in hero */}
-          <line x1="30" y1="100" x2="330" y2="280" stroke="rgba(4, 118, 7, 0.08)" strokeWidth="0.5" />
-          <line x1="330" y1="100" x2="30" y2="280" stroke="rgba(4, 118, 7, 0.08)" strokeWidth="0.5" />
+          <line x1="30" y1="100" x2="330" y2="280" stroke="rgba(117, 123, 173, 0.08)" strokeWidth="0.5" />
+          <line x1="330" y1="100" x2="30" y2="280" stroke="rgba(117, 123, 173, 0.08)" strokeWidth="0.5" />
 
           {/* Text lines */}
           {[310, 330, 350].map((y, i) => (
             <motion.rect
-              key={y} x="30" y={y} width={i === 2 ? 180 : 300} height="6" rx="3" fill="rgba(4, 118, 7, 0.12)"
+              key={y} x="30" y={y} width={i === 2 ? 180 : 300} height="6" rx="3" fill="rgba(117, 123, 173, 0.12)"
               initial={{ scaleX: 0 }} animate={isInView ? { scaleX: 1 } : {}} style={{ transformOrigin: "left" }}
               transition={{ duration: 0.6, delay: 0.7 + i * 0.1 }}
             />
@@ -170,15 +170,15 @@ export function WireframeMockup({ className = "" }: { className?: string }) {
               initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 1 + i * 0.15 }}
             >
-              <rect x="30" y={y} width="140" height="60" rx="6" fill="rgba(4, 118, 7, 0.08)" stroke="rgba(4, 118, 7, 0.12)" strokeWidth="0.5" />
-              <rect x="190" y={y} width="140" height="60" rx="6" fill="rgba(4, 118, 7, 0.08)" stroke="rgba(4, 118, 7, 0.12)" strokeWidth="0.5" />
+              <rect x="30" y={y} width="140" height="60" rx="6" fill="rgba(117, 123, 173, 0.08)" stroke="rgba(117, 123, 173, 0.12)" strokeWidth="0.5" />
+              <rect x="190" y={y} width="140" height="60" rx="6" fill="rgba(117, 123, 173, 0.08)" stroke="rgba(117, 123, 173, 0.12)" strokeWidth="0.5" />
             </motion.g>
           ))}
 
           {/* Bottom nav */}
-          <rect x="30" y="580" width="300" height="30" rx="15" fill="rgba(4, 118, 7, 0.08)" stroke="rgba(4, 118, 7, 0.12)" strokeWidth="0.5" />
+          <rect x="30" y="580" width="300" height="30" rx="15" fill="rgba(117, 123, 173, 0.08)" stroke="rgba(117, 123, 173, 0.12)" strokeWidth="0.5" />
           {[100, 180, 260].map((x) => (
-            <circle key={x} cx={x} cy={595} r={4} fill="rgba(4, 118, 7, 0.2)" />
+            <circle key={x} cx={x} cy={595} r={4} fill="rgba(117, 123, 173, 0.2)" />
           ))}
         </svg>
     </motion.div>
@@ -200,26 +200,26 @@ export function DesktopWireframe({ className = "" }: { className?: string }) {
     >
         <svg viewBox="0 0 800 500" className="w-full h-full">
           {/* Monitor frame */}
-          <rect x="5" y="5" width="790" height="460" rx="12" fill="none" stroke="rgba(4, 118, 7, 0.2)" strokeWidth="1" />
+          <rect x="5" y="5" width="790" height="460" rx="12" fill="none" stroke="rgba(117, 123, 173, 0.2)" strokeWidth="1" />
           {/* Browser chrome */}
-          <rect x="5" y="5" width="790" height="35" rx="12" fill="rgba(4, 118, 7, 0.08)" />
-          <circle cx="25" cy="22" r="4" fill="rgba(4, 118, 7, 0.22)" />
-          <circle cx="40" cy="22" r="4" fill="rgba(4, 118, 7, 0.18)" />
-          <circle cx="55" cy="22" r="4" fill="rgba(4, 118, 7, 0.18)" />
-          <rect x="200" y="14" width="400" height="16" rx="8" fill="rgba(4, 118, 7, 0.08)" />
+          <rect x="5" y="5" width="790" height="35" rx="12" fill="rgba(117, 123, 173, 0.08)" />
+          <circle cx="25" cy="22" r="4" fill="rgba(117, 123, 173, 0.22)" />
+          <circle cx="40" cy="22" r="4" fill="rgba(117, 123, 173, 0.18)" />
+          <circle cx="55" cy="22" r="4" fill="rgba(117, 123, 173, 0.18)" />
+          <rect x="200" y="14" width="400" height="16" rx="8" fill="rgba(117, 123, 173, 0.08)" />
 
           {/* Sidebar */}
           <motion.rect
-            x="5" y="40" width="180" height="425" fill="rgba(4, 118, 7, 0.05)"
+            x="5" y="40" width="180" height="425" fill="rgba(117, 123, 173, 0.05)"
             initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
-          <line x1="185" y1="40" x2="185" y2="465" stroke="rgba(4, 118, 7, 0.1)" strokeWidth="0.5" />
+          <line x1="185" y1="40" x2="185" y2="465" stroke="rgba(117, 123, 173, 0.1)" strokeWidth="0.5" />
 
           {/* Sidebar nav items */}
           {[70, 100, 130, 160, 190].map((y, i) => (
             <motion.rect
-              key={y} x="25" y={y} width={100 - i * 10} height="5" rx="2.5" fill="rgba(4, 118, 7, 0.15)"
+              key={y} x="25" y={y} width={100 - i * 10} height="5" rx="2.5" fill="rgba(117, 123, 173, 0.15)"
               initial={{ scaleX: 0 }} animate={isInView ? { scaleX: 1 } : {}} style={{ transformOrigin: "left" }}
               transition={{ duration: 0.5, delay: 0.5 + i * 0.08 }}
             />
@@ -227,22 +227,22 @@ export function DesktopWireframe({ className = "" }: { className?: string }) {
 
           {/* Main content — Hero area */}
           <motion.rect
-            x="205" y="60" width="570" height="200" rx="8" fill="rgba(4, 118, 7, 0.08)" stroke="rgba(4, 118, 7, 0.1)" strokeWidth="0.5"
+            x="205" y="60" width="570" height="200" rx="8" fill="rgba(117, 123, 173, 0.08)" stroke="rgba(117, 123, 173, 0.1)" strokeWidth="0.5"
             initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
           />
           {/* Hero text lines */}
-          <motion.rect x="225" y="80" width="250" height="12" rx="4" fill="rgba(4, 118, 7, 0.18)"
+          <motion.rect x="225" y="80" width="250" height="12" rx="4" fill="rgba(117, 123, 173, 0.18)"
             initial={{ scaleX: 0 }} animate={isInView ? { scaleX: 1 } : {}} style={{ transformOrigin: "left" }}
             transition={{ duration: 0.6, delay: 0.8 }}
           />
-          <motion.rect x="225" y="105" width="180" height="6" rx="3" fill="rgba(4, 118, 7, 0.1)"
+          <motion.rect x="225" y="105" width="180" height="6" rx="3" fill="rgba(117, 123, 173, 0.1)"
             initial={{ scaleX: 0 }} animate={isInView ? { scaleX: 1 } : {}} style={{ transformOrigin: "left" }}
             transition={{ duration: 0.6, delay: 0.9 }}
           />
 
           {/* CTA button */}
-          <motion.rect x="225" y="135" width="100" height="28" rx="4" fill="rgba(4, 118, 7, 0.2)"
+          <motion.rect x="225" y="135" width="100" height="28" rx="4" fill="rgba(117, 123, 173, 0.2)"
             initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 1 }}
           />
@@ -253,15 +253,15 @@ export function DesktopWireframe({ className = "" }: { className?: string }) {
               initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 1.1 + i * 0.12 }}
             >
-              <rect x={x} y={y} width="175" height="120" rx="6" fill="rgba(4, 118, 7, 0.05)" stroke="rgba(4, 118, 7, 0.1)" strokeWidth="0.5" />
-              <rect x={Number(x) + 12} y={Number(y) + 90} width="100" height="5" rx="2.5" fill="rgba(4, 118, 7, 0.15)" />
-              <rect x={Number(x) + 12} y={Number(y) + 102} width="60" height="4" rx="2" fill="rgba(4, 118, 7, 0.1)" />
+              <rect x={x} y={y} width="175" height="120" rx="6" fill="rgba(117, 123, 173, 0.05)" stroke="rgba(117, 123, 173, 0.1)" strokeWidth="0.5" />
+              <rect x={Number(x) + 12} y={Number(y) + 90} width="100" height="5" rx="2.5" fill="rgba(117, 123, 173, 0.15)" />
+              <rect x={Number(x) + 12} y={Number(y) + 102} width="60" height="4" rx="2" fill="rgba(117, 123, 173, 0.1)" />
             </motion.g>
           ))}
 
         {/* Monitor stand */}
-        <rect x="350" y="465" width="100" height="8" rx="2" fill="rgba(4, 118, 7, 0.05)" />
-        <rect x="320" y="473" width="160" height="6" rx="3" fill="rgba(4, 118, 7, 0.06)" />
+        <rect x="350" y="465" width="100" height="8" rx="2" fill="rgba(117, 123, 173, 0.05)" />
+        <rect x="320" y="473" width="160" height="6" rx="3" fill="rgba(117, 123, 173, 0.06)" />
       </svg>
     </motion.div>
   );
@@ -290,7 +290,7 @@ export function ConcentricCircles({ className = "", rings = 4 }: { className?: s
             cy="150"
             r={r}
             fill="none"
-            stroke="rgba(4, 118, 7, 0.06)"
+            stroke="rgba(117, 123, 173, 0.06)"
             strokeWidth="0.5"
             strokeDasharray={`${4 + i * 2} ${8 + i * 3}`}
             initial={{ pathLength: 0 }}
@@ -307,7 +307,7 @@ export function ConcentricCircles({ className = "", rings = 4 }: { className?: s
       />
       {/* Accent arcs */}
       <motion.circle
-        cx="150" cy="150" r="80" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1"
+        cx="150" cy="150" r="80" fill="none" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1"
         strokeDasharray="20 80"
         initial={{ pathLength: 0 }} animate={isInView ? { pathLength: 1 } : {}}
         transition={{ duration: 2, delay: 0.5 }}
@@ -324,9 +324,9 @@ export function ProcessDiagram({ className = "", step = 1 }: { className?: strin
   const icons: Record<number, React.ReactNode> = {
     1: ( // Research — magnifier
       <g>
-        <circle cx="90" cy="85" r="25" fill="none" stroke="rgba(4, 118, 7, 0.3)" strokeWidth="1.5" />
-        <line x1="108" y1="103" x2="125" y2="120" stroke="rgba(4, 118, 7, 0.3)" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="85" cy="80" r="4" fill="rgba(4, 118, 7, 0.12)" />
+        <circle cx="90" cy="85" r="25" fill="none" stroke="rgba(117, 123, 173, 0.3)" strokeWidth="1.5" />
+        <line x1="108" y1="103" x2="125" y2="120" stroke="rgba(117, 123, 173, 0.3)" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="85" cy="80" r="4" fill="rgba(117, 123, 173, 0.12)" />
       </g>
     ),
     2: ( // Structure — grid
@@ -334,34 +334,34 @@ export function ProcessDiagram({ className = "", step = 1 }: { className?: strin
         {[0, 1, 2].map((row) =>
           [0, 1, 2].map((col) => (
             <rect key={`${row}-${col}`} x={65 + col * 25} y={65 + row * 25} width="18" height="18" rx="3"
-              fill="none" stroke="rgba(4, 118, 7, 0.2)" strokeWidth="1" />
+              fill="none" stroke="rgba(117, 123, 173, 0.2)" strokeWidth="1" />
           ))
         )}
-        <rect x="65" y="65" width="18" height="18" rx="3" fill="rgba(4, 118, 7, 0.12)" />
+        <rect x="65" y="65" width="18" height="18" rx="3" fill="rgba(117, 123, 173, 0.12)" />
       </g>
     ),
     3: ( // Flow — connected nodes
       <g>
-        <circle cx="75" cy="75" r="12" fill="none" stroke="rgba(4, 118, 7, 0.25)" strokeWidth="1" />
-        <circle cx="120" cy="95" r="12" fill="none" stroke="rgba(4, 118, 7, 0.25)" strokeWidth="1" />
-        <circle cx="90" cy="125" r="12" fill="rgba(4, 118, 7, 0.1)" stroke="rgba(4, 118, 7, 0.25)" strokeWidth="1" />
-        <line x1="85" y1="82" x2="110" y2="90" stroke="rgba(4, 118, 7, 0.12)" strokeWidth="1" />
-        <line x1="112" y1="104" x2="98" y2="118" stroke="rgba(4, 118, 7, 0.12)" strokeWidth="1" />
-        <line x1="82" y1="86" x2="85" y2="115" stroke="rgba(4, 118, 7, 0.12)" strokeWidth="1" />
+        <circle cx="75" cy="75" r="12" fill="none" stroke="rgba(117, 123, 173, 0.25)" strokeWidth="1" />
+        <circle cx="120" cy="95" r="12" fill="none" stroke="rgba(117, 123, 173, 0.25)" strokeWidth="1" />
+        <circle cx="90" cy="125" r="12" fill="rgba(117, 123, 173, 0.1)" stroke="rgba(117, 123, 173, 0.25)" strokeWidth="1" />
+        <line x1="85" y1="82" x2="110" y2="90" stroke="rgba(117, 123, 173, 0.12)" strokeWidth="1" />
+        <line x1="112" y1="104" x2="98" y2="118" stroke="rgba(117, 123, 173, 0.12)" strokeWidth="1" />
+        <line x1="82" y1="86" x2="85" y2="115" stroke="rgba(117, 123, 173, 0.12)" strokeWidth="1" />
       </g>
     ),
     4: ( // Design — pen tool
       <g>
-        <path d="M80,120 L100,65 L120,120 Z" fill="none" stroke="rgba(4, 118, 7, 0.25)" strokeWidth="1.5" />
+        <path d="M80,120 L100,65 L120,120 Z" fill="none" stroke="rgba(117, 123, 173, 0.25)" strokeWidth="1.5" />
         <circle cx="100" cy="65" r="4" fill="var(--primary)" opacity="0.4" />
-        <circle cx="80" cy="120" r="3" fill="rgba(4, 118, 7, 0.15)" />
-        <circle cx="120" cy="120" r="3" fill="rgba(4, 118, 7, 0.15)" />
-        <path d="M80,120 Q90,95 100,65" fill="none" stroke="rgba(4, 118, 7, 0.1)" strokeWidth="0.5" strokeDasharray="3 3" />
+        <circle cx="80" cy="120" r="3" fill="rgba(117, 123, 173, 0.15)" />
+        <circle cx="120" cy="120" r="3" fill="rgba(117, 123, 173, 0.15)" />
+        <path d="M80,120 Q90,95 100,65" fill="none" stroke="rgba(117, 123, 173, 0.1)" strokeWidth="0.5" strokeDasharray="3 3" />
       </g>
     ),
     5: ( // Deliver — check / rocket
       <g>
-        <circle cx="100" cy="95" r="30" fill="none" stroke="rgba(4, 118, 7, 0.2)" strokeWidth="1" />
+        <circle cx="100" cy="95" r="30" fill="none" stroke="rgba(117, 123, 173, 0.2)" strokeWidth="1" />
         <polyline points="85,95 95,108 118,80" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
       </g>
     ),
@@ -377,8 +377,8 @@ export function ProcessDiagram({ className = "", step = 1 }: { className?: strin
       transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {/* Background circle */}
-      <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(4, 118, 7, 0.04)" strokeWidth="0.5" />
-      <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(4, 118, 7, 0.03)" strokeWidth="0.5" strokeDasharray="4 6" />
+      <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(117, 123, 173, 0.04)" strokeWidth="0.5" />
+      <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(117, 123, 173, 0.03)" strokeWidth="0.5" strokeDasharray="4 6" />
       {icons[step] || icons[1]}
     </motion.svg>
   );
@@ -450,7 +450,7 @@ export function DiamondRule({ className = "" }: { className?: string }) {
     <div ref={ref} className={`flex items-center gap-4 ${className}`}>
       <motion.div
         className="flex-1 h-[1px]"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(4, 118, 7, 0.15))", transformOrigin: "left" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(117, 123, 173, 0.15))", transformOrigin: "left" }}
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -463,7 +463,7 @@ export function DiamondRule({ className = "" }: { className?: string }) {
       />
       <motion.div
         className="flex-1 h-[1px]"
-        style={{ background: "linear-gradient(90deg, rgba(4, 118, 7, 0.15), transparent)", transformOrigin: "right" }}
+        style={{ background: "linear-gradient(90deg, rgba(117, 123, 173, 0.15), transparent)", transformOrigin: "right" }}
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -509,17 +509,17 @@ export function HeroVisual({ className = "" }: { className?: string }) {
       >
         {/* Large outer ring */}
         <motion.circle
-          cx="250" cy="250" r="220" fill="none" stroke="rgba(4, 118, 7, 0.06)" strokeWidth="0.5"
+          cx="250" cy="250" r="220" fill="none" stroke="rgba(117, 123, 173, 0.06)" strokeWidth="0.5"
           initial={{ pathLength: 0 }} animate={isInView ? { pathLength: 1 } : {}}
           transition={{ duration: 2, ease: "easeOut" }}
         />
         <motion.circle
-          cx="250" cy="250" r="180" fill="none" stroke="rgba(4, 118, 7, 0.05)" strokeWidth="0.5" strokeDasharray="8 12"
+          cx="250" cy="250" r="180" fill="none" stroke="rgba(117, 123, 173, 0.05)" strokeWidth="0.5" strokeDasharray="8 12"
           initial={{ pathLength: 0 }} animate={isInView ? { pathLength: 1 } : {}}
           transition={{ duration: 2, delay: 0.3 }}
         />
         <motion.circle
-          cx="250" cy="250" r="140" fill="none" stroke="rgba(4, 118, 7, 0.08)" strokeWidth="1"
+          cx="250" cy="250" r="140" fill="none" stroke="rgba(117, 123, 173, 0.08)" strokeWidth="1"
           strokeDasharray="2 20"
           initial={{ pathLength: 0 }} animate={isInView ? { pathLength: 1 } : {}}
           transition={{ duration: 2.5, delay: 0.5 }}
@@ -535,7 +535,7 @@ export function HeroVisual({ className = "" }: { className?: string }) {
               y1={250 + Math.sin(angle) * 100}
               x2={250 + Math.cos(angle) * 220}
               y2={250 + Math.sin(angle) * 220}
-              stroke="rgba(4, 118, 7, 0.03)"
+              stroke="rgba(117, 123, 173, 0.03)"
               strokeWidth="0.5"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : {}}
@@ -562,8 +562,8 @@ export function HeroVisual({ className = "" }: { className?: string }) {
         <circle cx="250" cy="250" r="40" fill="url(#hero-center-glow)" />
         <defs>
           <radialGradient id="hero-center-glow">
-            <stop offset="0%" stopColor="rgba(4, 118, 7, 0.1)" />
-            <stop offset="100%" stopColor="rgba(4, 118, 7, 0)" />
+            <stop offset="0%" stopColor="rgba(117, 123, 173, 0.1)" />
+            <stop offset="100%" stopColor="rgba(117, 123, 173, 0)" />
           </radialGradient>
         </defs>
 
@@ -648,7 +648,7 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
               cx={20 + col * 30}
               cy={20 + row * 20}
               r={0.6}
-              fill="rgba(4, 118, 7, 0.05)"
+              fill="rgba(117, 123, 173, 0.05)"
             />
           ))
         )}
@@ -663,7 +663,7 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
               key={`path-${i}`}
               d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
               fill="none"
-              stroke="rgba(4, 118, 7, 0.12)"
+              stroke="rgba(117, 123, 173, 0.12)"
               strokeWidth="1.5"
               strokeDasharray="6 4"
               initial={{ pathLength: 0 }}
@@ -713,7 +713,7 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
               cy={pos.y}
               r={42}
               fill="none"
-              stroke="rgba(4, 118, 7, 0.06)"
+              stroke="rgba(117, 123, 173, 0.06)"
               strokeWidth="0.5"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={isInView ? { scale: [0.8, 1.1, 1], opacity: [0, 0.4, 0.2] } : {}}
@@ -722,10 +722,10 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
             />
 
             {/* Main circle background */}
-            <circle cx={pos.x} cy={pos.y} r={36} fill="rgba(4, 118, 7, 0.03)" stroke="rgba(4, 118, 7, 0.1)" strokeWidth="1" />
+            <circle cx={pos.x} cy={pos.y} r={36} fill="rgba(117, 123, 173, 0.03)" stroke="rgba(117, 123, 173, 0.1)" strokeWidth="1" />
 
             {/* Inner accent ring */}
-            <circle cx={pos.x} cy={pos.y} r={28} fill="none" stroke="rgba(4, 118, 7, 0.05)" strokeWidth="0.5" />
+            <circle cx={pos.x} cy={pos.y} r={28} fill="none" stroke="rgba(117, 123, 173, 0.05)" strokeWidth="0.5" />
 
             {/* Step number */}
             <text
@@ -748,7 +748,7 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
               y={pos.y + 14}
               textAnchor="middle"
               dominantBaseline="middle"
-              fill="rgba(4, 118, 7, 0.4)"
+              fill="rgba(117, 123, 173, 0.4)"
               fontSize="7"
                 letterSpacing="0.15em"
                 style={{ textTransform: "uppercase" }}
@@ -782,7 +782,7 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
         <motion.path
           d={`M ${nodePositions[4].x} ${nodePositions[4].y + 40} Q 460 310 ${nodePositions[0].x} ${nodePositions[0].y + 40}`}
           fill="none"
-          stroke="rgba(4, 118, 7, 0.08)"
+          stroke="rgba(117, 123, 173, 0.08)"
           strokeWidth="1"
           strokeDasharray="4 6"
           initial={{ pathLength: 0 }}
@@ -793,7 +793,7 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
           x="460"
           y="305"
           textAnchor="middle"
-          fill="rgba(4, 118, 7, 0.2)"
+          fill="rgba(117, 123, 173, 0.2)"
           fontSize="8"
           letterSpacing="0.2em"
           initial={{ opacity: 0 }}
@@ -938,7 +938,7 @@ export function SystemArchitecture({ className = "" }: { className?: string }) {
               strokeWidth="1.5"
               strokeOpacity="0.1"
               whileHover={{ strokeOpacity: 0.4 }}
-              style={{ filter: "drop-shadow(0 4px 12px rgba(4, 118, 7, 0.05))" }}
+              style={{ filter: "drop-shadow(0 4px 12px rgba(117, 123, 173, 0.05))" }}
             />
             <text
               x={node.x}
@@ -1011,7 +1011,7 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
            initial={{ opacity: 0, y: 20 }}
            animate={isInView ? { opacity: 1, y: 0 } : {}}
            transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
-           className="p-8 border border-neutral-100 bg-neutral-50/50 relative group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-[0_8px_30px_rgb(4,118,7,0.06)]"
+           className="p-8 border border-neutral-100 bg-neutral-50/50 relative group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-[0_8px_30px_rgb(117,123,173,0.06)]"
         >
           <motion.div 
             className="w-20 h-20 mx-auto mb-6 flex items-center justify-center border border-[var(--primary)]/10 rounded-full bg-white relative"
@@ -1063,7 +1063,7 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
            initial={{ opacity: 0, y: 20 }}
            animate={isInView ? { opacity: 1, y: 0 } : {}}
            transition={{ delay: 0.6, type: "spring", stiffness: 100 }}
-           className="relative p-8 border border-[var(--primary)]/5 bg-[var(--primary)]/[0.015] overflow-hidden group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-[0_8px_30px_rgb(4,118,7,0.06)]"
+           className="relative p-8 border border-[var(--primary)]/5 bg-[var(--primary)]/[0.015] overflow-hidden group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-[0_8px_30px_rgb(117,123,173,0.06)]"
         >
           <div className="absolute top-0 right-0 p-2 text-[8px] font-mono text-[var(--primary)] opacity-30 font-bold tracking-widest group-hover:opacity-60 transition-opacity">PROCESS_MODULE</div>
           
@@ -1136,7 +1136,7 @@ export function LogicSequence({ className = "" }: { className?: string }) {
               transition={{ delay: i * 0.15, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
               className="flex flex-col items-center group/step"
             >
-              <div className="w-40 h-40 rounded-sm border border-neutral-100 flex flex-col items-center justify-center p-6 transition-all duration-700 bg-neutral-50/20 group-hover/step:bg-white group-hover/step:border-[var(--primary)]/40 group-hover/step:scale-105 group-hover/step:shadow-[0_8px_30px_rgb(4,118,7,0.05)]">
+              <div className="w-40 h-40 rounded-sm border border-neutral-100 flex flex-col items-center justify-center p-6 transition-all duration-700 bg-neutral-50/20 group-hover/step:bg-white group-hover/step:border-[var(--primary)]/40 group-hover/step:scale-105 group-hover/step:shadow-[0_8px_30px_rgb(117,123,173,0.05)]">
                 <span className="text-[10px] text-neutral-400 font-mono mb-4 group-hover/step:text-[var(--primary)] transition-colors tracking-widest uppercase">STP_SEQUENCE::0{i+1}</span>
                 <span className="text-[13px] text-neutral-900 font-black tracking-[0.05em] text-center uppercase leading-tight">{step.label}</span>
                 <motion.div 
@@ -1185,16 +1185,16 @@ export function ClassDiagramSkeleton({ className = "" }: { className?: string })
       <svg viewBox="0 0 800 500" className="w-full h-full">
         <defs>
           <pattern id="grid-pattern-cd" width="20" height="20" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="1" fill="rgba(4, 118, 7, 0.05)" />
+            <circle cx="1" cy="1" r="1" fill="rgba(117, 123, 173, 0.05)" />
           </pattern>
         </defs>
-        <rect width="800" height="500" fill="url(#grid-pattern-cd)" rx="12" stroke="rgba(4, 118, 7, 0.1)" strokeWidth="1" />
+        <rect width="800" height="500" fill="url(#grid-pattern-cd)" rx="12" stroke="rgba(117, 123, 173, 0.1)" strokeWidth="1" />
         
         {/* Connection lines */}
-        <path d="M 270 130 L 380 180" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
-        <path d="M 170 210 L 170 280" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" />
-        <path d="M 500 280 L 560 340" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" />
-        <path d="M 340 355 L 480 380" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+        <path d="M 270 130 L 380 180" fill="none" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+        <path d="M 170 210 L 170 280" fill="none" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1.5" />
+        <path d="M 500 280 L 560 340" fill="none" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1.5" />
+        <path d="M 340 355 L 480 380" fill="none" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
 
         {/* Classes */}
         {classes.map((cls, i) => (
@@ -1203,20 +1203,20 @@ export function ClassDiagramSkeleton({ className = "" }: { className?: string })
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
           >
-            <rect x={cls.x} y={cls.y} width={cls.width} height={cls.height} fill="#ffffff" stroke="rgba(4, 118, 7, 0.2)" strokeWidth="1" rx="6" />
-            <rect x={cls.x} y={cls.y} width={cls.width} height="35" fill="rgba(4, 118, 7, 0.03)" clipPath={`polygon(0 0, 100% 0, 100% 100%, 0 100%)`} />
-            <line x1={cls.x} y1={cls.y + 35} x2={cls.x + cls.width} y2={cls.y + 35} stroke="rgba(4, 118, 7, 0.1)" strokeWidth="1" />
+            <rect x={cls.x} y={cls.y} width={cls.width} height={cls.height} fill="#ffffff" stroke="rgba(117, 123, 173, 0.2)" strokeWidth="1" rx="6" />
+            <rect x={cls.x} y={cls.y} width={cls.width} height="35" fill="rgba(117, 123, 173, 0.03)" clipPath={`polygon(0 0, 100% 0, 100% 100%, 0 100%)`} />
+            <line x1={cls.x} y1={cls.y + 35} x2={cls.x + cls.width} y2={cls.y + 35} stroke="rgba(117, 123, 173, 0.1)" strokeWidth="1" />
             
             <rect x={cls.x + 15} y={cls.y + 14} width="60" height="7" fill="var(--primary)" opacity="0.4" rx="3.5" />
             
             {Array.from({ length: cls.attributes }).map((_, j) => (
-              <rect key={`attr-${j}`} x={cls.x + 15} y={cls.y + 50 + j * 16} width={cls.width - 50} height="5" fill="rgba(4, 118, 7, 0.1)" rx="2.5" />
+              <rect key={`attr-${j}`} x={cls.x + 15} y={cls.y + 50 + j * 16} width={cls.width - 50} height="5" fill="rgba(117, 123, 173, 0.1)" rx="2.5" />
             ))}
             
-            <line x1={cls.x} y1={cls.y + 55 + cls.attributes * 16} x2={cls.x + cls.width} y2={cls.y + 55 + cls.attributes * 16} stroke="rgba(4, 118, 7, 0.08)" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1={cls.x} y1={cls.y + 55 + cls.attributes * 16} x2={cls.x + cls.width} y2={cls.y + 55 + cls.attributes * 16} stroke="rgba(117, 123, 173, 0.08)" strokeWidth="1" strokeDasharray="2 2" />
             
             {Array.from({ length: cls.methods }).map((_, j) => (
-              <rect key={`meth-${j}`} x={cls.x + 15} y={cls.y + 65 + cls.attributes * 16 + j * 16} width={cls.width - 70} height="5" fill="rgba(4, 118, 7, 0.2)" rx="2.5" />
+              <rect key={`meth-${j}`} x={cls.x + 15} y={cls.y + 65 + cls.attributes * 16 + j * 16} width={cls.width - 70} height="5" fill="rgba(117, 123, 173, 0.2)" rx="2.5" />
             ))}
           </motion.g>
         ))}
@@ -1246,11 +1246,11 @@ export function MobileClassDiagramSkeleton({ className = "" }: { className?: str
     >
       <svg viewBox="0 0 240 540" className="w-full h-full">
         {/* Frame */}
-        <rect x="5" y="5" width="230" height="530" rx="20" fill="none" stroke="rgba(4, 118, 7, 0.2)" strokeWidth="1" />
+        <rect x="5" y="5" width="230" height="530" rx="20" fill="none" stroke="rgba(117, 123, 173, 0.2)" strokeWidth="1" />
         
         {/* Connections */}
-        <path d="M 120 180 L 120 220" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" />
-        <path d="M 100 330 L 100 370" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" strokeDasharray="3 3" />
+        <path d="M 120 180 L 120 220" fill="none" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1.5" />
+        <path d="M 100 330 L 100 370" fill="none" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1.5" strokeDasharray="3 3" />
 
         {classes.map((cls, i) => (
           <motion.g key={i}
@@ -1258,20 +1258,20 @@ export function MobileClassDiagramSkeleton({ className = "" }: { className?: str
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 + i * 0.2 }}
           >
-            <rect x={cls.x} y={cls.y} width={cls.width} height={cls.height} fill="white" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1" rx="5" />
-            <rect x={cls.x} y={cls.y} width={cls.width} height="25" fill="rgba(4, 118, 7, 0.03)" />
-            <line x1={cls.x} y1={cls.y + 25} x2={cls.x + cls.width} y2={cls.y + 25} stroke="rgba(4, 118, 7, 0.1)" strokeWidth="1" />
+            <rect x={cls.x} y={cls.y} width={cls.width} height={cls.height} fill="white" stroke="rgba(117, 123, 173, 0.15)" strokeWidth="1" rx="5" />
+            <rect x={cls.x} y={cls.y} width={cls.width} height="25" fill="rgba(117, 123, 173, 0.03)" />
+            <line x1={cls.x} y1={cls.y + 25} x2={cls.x + cls.width} y2={cls.y + 25} stroke="rgba(117, 123, 173, 0.1)" strokeWidth="1" />
             
             <rect x={cls.x + 10} y={cls.y + 10} width="40" height="5" fill="var(--primary)" opacity="0.3" rx="2.5" />
             
             {Array.from({ length: cls.attributes }).map((_, j) => (
-              <rect key={`attr-${j}`} x={cls.x + 10} y={cls.y + 35 + j * 12} width={cls.width - 30} height="4" fill="rgba(4, 118, 7, 0.1)" rx="2" />
+              <rect key={`attr-${j}`} x={cls.x + 10} y={cls.y + 35 + j * 12} width={cls.width - 30} height="4" fill="rgba(117, 123, 173, 0.1)" rx="2" />
             ))}
             
-            <line x1={cls.x} y1={cls.y + 35 + cls.attributes * 12} x2={cls.x + cls.width} y2={cls.y + 35 + cls.attributes * 12} stroke="rgba(4, 118, 7, 0.05)" strokeWidth="1" />
+            <line x1={cls.x} y1={cls.y + 35 + cls.attributes * 12} x2={cls.x + cls.width} y2={cls.y + 35 + cls.attributes * 12} stroke="rgba(117, 123, 173, 0.05)" strokeWidth="1" />
             
             {Array.from({ length: cls.methods }).map((_, j) => (
-              <rect key={`meth-${j}`} x={cls.x + 10} y={cls.y + 42 + cls.attributes * 12 + j * 12} width={cls.width - 50} height="4" fill="rgba(4, 118, 7, 0.2)" rx="2" />
+              <rect key={`meth-${j}`} x={cls.x + 10} y={cls.y + 42 + cls.attributes * 12 + j * 12} width={cls.width - 50} height="4" fill="rgba(117, 123, 173, 0.2)" rx="2" />
             ))}
           </motion.g>
         ))}
