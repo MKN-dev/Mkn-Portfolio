@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://portfolio.canjix.com/sitemap.xml',
+    sitemap: 'https://mkn.canjix.com/sitemap.xml',
   }
 }
