@@ -1,0 +1,28 @@
+services:
+  mkn_portfolio:
+    image: mkn228/mkn_portfolio:latest
+    container_name: mkn_portfolio
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:3000:3000"
+
+    environment:
+      NODE_ENV: production
+
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 100
+
+    cpus: "0.5"
+    mem_limit: 512m
+
+    networks:
+      - canjix-network
+
+networks:
+  canjix-network:
+    external: true

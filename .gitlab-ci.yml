@@ -1,0 +1,90 @@
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+image: docker:latest
+
+stages:
+  - build
+  - deploy
+
+variables:
+  PROJECT_LOCATION: /opt/applications
+  PROJECT_GROUP: mkn228
+  PROJECT_NETWORK: mkn-network
+  PROJECT_NAME: mkn_portfolio
+  PROJECT_VERSION: $CI_COMMIT_SHORT_SHA
+  DOMAIN: canjix.com
+
+# Étape de build et de push de l'image Docker
+build:
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - echo "Connexion au registry Docker..."
+    - docker login -u "$REGISTRY_USERNAME" -p "$REGISTRY_PASSWORD"
+  script:
+    - echo "Build de l'image du frontend..."
+    - docker build -t $PROJECT_GROUP/$PROJECT_NAME:$PROJECT_VERSION -f Dockerfile .
+    - docker push $PROJECT_GROUP/$PROJECT_NAME:$PROJECT_VERSION
+    - docker tag $PROJECT_GROUP/$PROJECT_NAME:$PROJECT_VERSION $PROJECT_GROUP/$PROJECT_NAME:latest
+    - docker push $PROJECT_GROUP/$PROJECT_NAME:latest
+  only:
+    - main
+
+# Étape de déploiement sur le serveur distant
+deploy:
+  stage: deploy
+  image: ubuntu:22.04
+  before_script:
+    - 'which ssh-agent || (apt-get update -y && apt-get install openssh-client -y)'
+    - |
+      echo "Configuration SSH..."
+      echo "$PROD_SERVER_SSH_KEY" > /tmp/deploy_key
+      chmod 600 /tmp/deploy_key
+  script:
+    - |
+      set -e
+      echo "Déploiement du frontend en cours..."
+
+      SSH_CMD="ssh -o StrictHostKeyChecking=no -i /tmp/deploy_key -p $PROD_SERVER_SSH_PORT $PROD_SERVER_USERNAME@$PROD_SERVER_ADDRESS"
+      SCP_CMD="scp -o StrictHostKeyChecking=no -i /tmp/deploy_key -P $PROD_SERVER_SSH_PORT"
+      PROJECT_PATH="$PROJECT_LOCATION/$PROJECT_NAME"
+
+      # 1. Connexion test
+      $SSH_CMD "echo 'Connexion SSH réussie !'"
+
+      # 2. Préparation du dossier
+      $SSH_CMD "mkdir -p $PROJECT_PATH"
+
+      # 3. Copie du docker-compose spécifique au frontend
+      echo "Copie du fichier docker-compose..."
+      $SCP_CMD docker-compose.prod.yml $PROD_SERVER_USERNAME@$PROD_SERVER_ADDRESS:$PROJECT_PATH/docker-compose.yml
+
+      # 4. Copie du fichier .env
+      echo "Configuration de l'environnement..."
+      $SSH_CMD "cat > $PROJECT_PATH/.env" << EOF
+      NODE_ENV=production
+      EOF
+
+      # 5. Réseau Docker
+      $SSH_CMD "docker network inspect $PROJECT_NETWORK > /dev/null 2>&1 || docker network create $PROJECT_NETWORK"
+
+      # 6. Nettoyage des anciens conteneurs
+      echo "🧹 Nettoyage des anciens conteneurs..."
+      $SSH_CMD "cd $PROJECT_PATH && docker compose down || true"
+
+      # 7. Pull et lancement du nouveau conteneur
+      echo "Lancement du nouveau service..."
+      $SSH_CMD "cd $PROJECT_PATH && docker compose pull && docker compose --env-file .env up -d"
+
+      # 8. Vérification
+      echo "Vérification du déploiement..."
+      sleep 15
+      $SSH_CMD "cd $PROJECT_PATH && docker compose ps"
+  environment:
+    name: production
+    url: https://$DOMAIN
+  only:
+    - main
