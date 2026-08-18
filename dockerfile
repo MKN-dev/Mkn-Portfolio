@@ -22,7 +22,7 @@ WORKDIR /app
 RUN addgroup -S app && adduser -S app -G app
 
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=3000
 
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
